@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux"
+import { useAppSelector } from "../store";
 
 export function TodoList(){
 
-  const todo = useSelector(store => store.todo);
+  const todo = useAppSelector(store => store.todo);
   return (
     <ul>
       {todo.map(i=> <li>{i}</li>)}
