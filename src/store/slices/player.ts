@@ -3,7 +3,6 @@ import { useAppSelector } from "..";
 import { api } from "../../lib/axios";
 
 
-
 interface Lesson {
   id: string,
   title: string
