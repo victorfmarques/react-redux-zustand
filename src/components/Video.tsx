@@ -4,8 +4,13 @@ import { useCurrentLesson, useStore } from "../zustand-store";
 
 export function Video() {
   const lesson = useCurrentLesson()
-  const isLoading = useStore(state => state.isLoading)
-  const { next } = useStore()
+
+  const { next, isLoading } = useStore((store) => {
+    return {
+      next: store.next,
+      isLoading: store.isLoading,
+    }
+  })
 
   function handlePlayNext() {
     next()
@@ -24,7 +29,7 @@ export function Video() {
             width="100%"
             height="100%"
             controls
-            // playing
+            playing
             url={`https://www.youtube.com/watch?v=${lesson?.id}`}
             onEnded={handlePlayNext}
           />

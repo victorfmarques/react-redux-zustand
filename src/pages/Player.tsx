@@ -8,22 +8,16 @@ import { useStore } from "../zustand-store"
 
 
 export function Player() {
-  const { course, load } = useStore()
-
-  // const dispatch = useAppDispatch()
-  // const modules = useAppSelector(state => state.player.course?.modules)
-
-  // const currentLesson = useCurrentLesson()
-
-  // useEffect(() => {
-  //   document.title = `Assistindo ${currentLesson?.title}`
-  // }, [currentLesson])
+  const { course, load } = useStore(store => {
+    return {
+      course: store.course,
+      load: store.load,
+    }
+  })
 
   useEffect(() => {
     load()
   }, [])
-
-  console.log(course)
 
   return (
     <div className="h-screen bg-zinc-950 text-zinc-50 flex justify-center items-center">

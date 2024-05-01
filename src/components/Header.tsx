@@ -2,7 +2,7 @@ import { useCurrentLesson, useCurrentModule, useStore } from "../zustand-store";
 
 export function Header() {
 
-  const { isLoading } = useStore()
+  const isLoading = useStore(store => store.isLoading)
   const module = useCurrentModule()
   const lesson = useCurrentLesson()
 
